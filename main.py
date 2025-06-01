@@ -1,8 +1,8 @@
 import json
 import time
 from datetime import datetime, timedelta
-from collections import defaultdict, deque
-from typing import Dict, List, Any, Optional
+from collections import defaultdict
+from typing import Dict, Any, Optional
 from dataclasses import dataclass
 import threading
 import logging
@@ -36,10 +36,8 @@ class AttackDetector:
         self.POWER_SPIKE_THRESHOLD = 1.5  # 150% of average
         self.BUSINESS_HOURS_START = 8
         self.BUSINESS_HOURS_END = 18
-        self.MAX_CONCURRENT_SESSIONS = 3
         self.SUSPICIOUS_COMMAND_THRESHOLD = 5
         self.COMMAND_WINDOW_MINUTES = 5
-        self.MAX_API_CALLS = 100  # New: API rate limiting
         self.API_WINDOW_MINUTES = 1
         self.SESSION_TIMEOUT_MINUTES = 30  # Session timeout for hijacking detection
         
@@ -49,9 +47,6 @@ class AttackDetector:
         self.power_readings = defaultdict(list)
         self.active_sessions = defaultdict(set)
         self.command_events = defaultdict(list)
-        self.concurrent_sessions = defaultdict(int)
-        self.api_calls = defaultdict(list)  # New: API call tracking
-        self.data_requests = defaultdict(list)  # New: Data request tracking
         self.session_tracking = {}  # New: Session hijacking tracking
         
         # Historical averages for power consumption (simulated)

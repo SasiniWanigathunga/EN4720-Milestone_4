@@ -1,0 +1,39 @@
+{
+  "suspicious_patterns": [
+    "rm -rf", "rm -r", "rm --no-preserve-root", "del /s", "format", "mkfs", "dd if=", "fdisk", "parted",
+    "killall", "pkill", "xkill", "taskkill", "kill -9", "halt", "shutdown", "reboot", "poweroff",
+
+    "wget", "curl", "lynx", "links", "fetch", "ftp", "sftp", "scp", "rsync", "tftp",
+    "nc ", "ncat", "netcat", "telnet", "socat", "openssl s_client", "python -m http.server",
+
+    "chmod 777", "chmod +x", "chown", "passwd", "useradd", "userdel", "usermod", "groupadd", "groupdel", "gpasswd",
+
+    "sudo", "su ", "doas", "pkexec", "runas", "setuid", "capsh", "newgrp",
+
+    "bash -c", "sh -c", "zsh -c", "python -c", "perl -e", "ruby -e", "node -e", "php -r", "lua -e",
+    "eval", "exec", "source", ". ", "./", "`", "$(", "trap", "alias",
+
+    "bash -i >& /dev/tcp/", "0<&196;exec 196<>/dev/tcp", "nc -e", "ncat -e", "python -c 'import socket,subprocess'", 
+    "perl -e 'use Socket'", "ruby -rsocket -e", "php -r '$sock=", "powershell -nop -c", "mshta", "rundll32",
+
+    "nmap", "netstat", "ss ", "ip a", "ip r", "ifconfig", "iwconfig", "arp", "traceroute", "whois", "dig", "host", 
+    "tcpdump", "wireshark", "airmon-ng", "airodump-ng", "kismet",
+
+    "base64 -d", "xxd -r", "echo .*|base64", "curl.*|sh", "wget.*|sh", "eval $(curl", "eval $(wget", 
+    "echo .* > /tmp/", "/tmp/somefile", "/dev/shm/", "/var/tmp/", ".bash_history", ".ssh/", ".bashrc",
+
+    "tar -czf", "zip", "gzip", "bzip2", "openssl enc", "gpg --encrypt", "scp", "nc", "ftp", "curl -F", "wget --post-file",
+
+    "history -c", "history -w", "unset HISTFILE", "rm ~/.bash_history", "echo '' > ~/.bash_history", 
+    "cat /dev/null > ~/.bash_history", "logrotate", "journalctl --vacuum-time", "truncate -s 0",
+
+    "reg delete", "reg add", "taskkill", "tasklist", "net user", "net localgroup", "sc delete", "sc config", 
+    "bcdedit", "diskpart", "vssadmin delete shadows", "wevtutil cl", "icacls", "cacls", "schtasks", 
+    "powershell -enc", "powershell -e",
+
+    "base64", "rot13", "xor", "shuf", "gzip -d", "xxd -r", "awk", "sed", "cut", "tr", "head", "tail",
+
+    "LD_PRELOAD", "LD_LIBRARY_PATH", "PATH=", "export PATH=", "unset PATH", "alias rm=", "alias sudo=", 
+    "export HISTFILE=", "PROMPT_COMMAND=", "PS1="
+  ]
+}
